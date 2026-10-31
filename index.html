@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a0a">
+<title>Paul Daveeh Mejia — Graphic Designer</title>
+<meta name="description" content="Portfolio of Paul Daveeh Mejia, a graphic designer from the Philippines with 4 years of experience in ads, tracts, posters, apparel, presentations and menus.">
+<meta property="og:title" content="Paul Daveeh Mejia — Graphic Designer">
+<meta property="og:description" content="Ads, tracts, posters, apparel designs, presentations and menus.">
+<meta property="og:image" content="images/balayar-highlights-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- FREE VISITOR TRACKING (pick ONE, then remove the comment markers) --------
+     Cloudflare Web Analytics: https://dash.cloudflare.com -> Web Analytics
+     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+
+     GoatCounter (goatcounter.com, free for personal sites):
+     <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+------------------------------------------------------------------------------>
+
+<style>
+  :root{
+    --bg:#0a0a0a; --ink:#f2efe9; --muted:#8d8982; --line:#26241f; --card:#131210;
+    --accent:#ff5a36; --accent-ink:#0a0a0a;
+    --radius:14px; --gutter:clamp(18px,4vw,48px); --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:100}
+  .skip:focus{left:8px}
+  .label{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;gap:20px;height:64px}
+  .logo{font-family:Fraunces,serif;font-weight:700;text-decoration:none;font-size:1.15rem;white-space:nowrap}
+  .logo span{color:var(--accent)}
+  .clock{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+  nav ul{display:flex;gap:clamp(14px,2.4vw,28px);list-style:none;padding:0;font-size:.93rem;margin-left:auto}
+  nav ul a{text-decoration:none;color:var(--muted)}
+  nav ul a:hover{color:var(--ink)}
+  .nav-cta{padding:9px 18px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.9rem;text-decoration:none;white-space:nowrap}
+  @media(max-width:900px){.clock{display:none}}
+  @media(max-width:700px){nav ul{display:none}.nav-cta{margin-left:auto}}
+
+  /* hero */
+  .hero{padding-top:clamp(56px,10vw,120px);padding-bottom:clamp(36px,6vw,64px)}
+  .hero h1{font-size:clamp(2.6rem,8.4vw,6.6rem);margin:20px 0 26px;max-width:16ch}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p.lead{max-width:54ch;font-size:clamp(1.05rem,2vw,1.25rem);color:#b9b5ac}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.97rem;border:1.5px solid #4a463e;transition:transform .15s,border-color .15s}
+  .btn:hover{transform:translateY(-2px);border-color:var(--ink)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;margin-top:60px;padding-top:28px;border-top:1px solid var(--line)}
+  .stats b{font-family:Fraunces,serif;font-size:clamp(2rem,4vw,2.8rem);display:block;line-height:1}
+  .stats span{font-size:.85rem;color:var(--muted)}
+
+  /* sections */
+  section{padding:clamp(48px,8vw,96px) 0}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:22px;margin-bottom:30px}
+  .sec-head h2,.h2{font-size:clamp(2rem,5vw,3.4rem)}
+  .hint{color:var(--muted);font-size:.9rem;margin:-14px 0 24px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px}
+  .filters button{font:inherit;font-size:.9rem;font-weight:500;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+  .filters button:hover{color:var(--ink);border-color:#4a463e}
+  .filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .filters small{opacity:.6;margin-left:4px}
+
+  .grid{columns:3 290px;column-gap:20px}
+  .grid.two{columns:2 420px}
+  .item{break-inside:avoid;margin-bottom:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:zoom-in;display:block;width:100%;padding:0;text-align:left;font:inherit;color:inherit;transition:transform .25s,border-color .25s}
+  .item:hover{transform:translateY(-4px);border-color:#4a463e}
+  .item:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .item img{width:100%;height:auto;background:#fff}
+  .item .cap{padding:14px 16px 16px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .item .cap b{font-family:Fraunces,serif;font-size:1.05rem;font-weight:700}
+  .item .cap span{font-size:.78rem;color:var(--muted);white-space:nowrap}
+  .item[hidden]{display:none}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+
+  /* services */
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:30px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px}
+  .svc h3{font-size:1.5rem;margin-bottom:8px}
+  .svc p{color:#b9b5ac;font-size:.97rem}
+  .svc .best{margin-top:14px;font-size:.85rem;color:var(--muted)}
+  .svc .best b{color:var(--accent);font-weight:600}
+
+
+  /* pricing */
+  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:30px}
+  .price article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+  .price article.featured{border-color:var(--accent)}
+  .price .amt{font-family:Fraunces,serif;font-weight:700;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;letter-spacing:-.02em}
+  .price .amt small{font-family:Inter,sans-serif;font-weight:500;font-size:.95rem;color:var(--muted);letter-spacing:0;margin-left:6px}
+  .price p:not(.label):not(.amt){color:#b9b5ac;font-size:.97rem;flex:1}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:30px;counter-reset:s}
+  .steps div{border-top:1px solid #4a463e;padding-top:18px;counter-increment:s}
+  .steps div::before{content:"0" counter(s);font-family:Fraunces,serif;color:var(--accent);font-size:1.1rem}
+  .steps h3{font-size:1.4rem;margin:6px 0}
+  .steps p{color:#b9b5ac;font-size:.95rem}
+
+  /* about / contact */
+  .about{display:grid;grid-template-columns:5fr 6fr;gap:clamp(28px,6vw,80px);align-items:center}
+  .portrait{border-radius:20px;overflow:hidden;border:1px solid var(--line);max-width:460px;width:100%;margin:0}
+  .portrait img{width:100%;height:auto}
+  .about p{color:#cfcbc2}
+  .about p+p{margin-top:16px}
+  .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tools span{border:1.5px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.9rem;font-weight:500}
+  .contact{text-align:center;border-top:1px solid var(--line)}
+  .contact h2{font-size:clamp(2.4rem,7vw,5rem);max-width:14ch;margin:0 auto 18px}
+  .contact p{color:var(--muted);margin-bottom:28px}
+  .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  footer{border-top:1px solid var(--line);padding:26px 0;font-size:.88rem;color:var(--muted)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:50;background:rgba(5,5,5,.94);display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.open{display:flex}
+  .lb figure{max-width:min(94vw,1200px);max-height:94vh;display:flex;flex-direction:column;gap:12px;align-items:center}
+  .lb img{max-height:78vh;width:auto;max-width:100%;border-radius:8px;background:#fff}
+  .lb figcaption{color:#f2efe9;text-align:center;font-size:.95rem}
+  .lb figcaption small{display:block;opacity:.65}
+  .lb figcaption a{font-size:.85rem;color:var(--accent)}
+  .lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:46px;height:46px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+  .lb button:hover{background:rgba(255,255,255,.25)}
+  .lb .x{top:16px;right:16px}.lb .prev{left:16px}.lb .next{right:16px}
+  .lb .prev,.lb .next{top:50%;transform:translateY(-50%)}
+
+  @media(max-width:760px){
+    .about{grid-template-columns:1fr}
+    .lb .prev{left:6px}.lb .next{right:6px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Paul Daveeh<span>.</span></a>
+      <div class="clock" aria-hidden="true"><i class="dot"></i><span>Philippines · <span id="clock">--:--</span></span></div>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <p class="label">Graphic designer · Philippines</p>
+    <h1>Ads, tracts and apparel that people <em>actually read.</em></h1>
+    <p class="lead">I'm Paul Daveeh Mejia. For 4 years I've designed ads, tracts, posters, T-shirts, presentations and menus for brands, schools and churches.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="#pricing">See pricing</a>
+    </div>
+    <div class="stats">
+      <div><b>4+</b><span>years designing</span></div>
+      <div><b id="count">0</b><span>pieces shown below</span></div>
+      <div><b>4</b><span>design categories</span></div>
+      <div><b>Canva · PS</b><span>main tools</span></div>
+    </div>
+  </div>
+
+  <section id="work" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+      </div>
+      <p class="hint" id="hint"></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="services" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <p class="label">What I design</p>
+      <h2 class="h2" style="margin-top:10px">Six things, done well.</h2>
+      <div class="svc">
+        <article><h3>Advertisements</h3><p>Social media ads and product promos with a clear message and a clear next step.</p><p class="best"><b>Best for:</b> online shops, product launches, promos</p></article>
+        <article><h3>Tracts</h3><p>Folded gospel tracts and print pieces with readable layouts and strong covers.</p><p class="best"><b>Best for:</b> churches, ministries, outreach teams</p></article>
+        <article><h3>Posters</h3><p>Announcements, events and campaigns that can be understood at a glance.</p><p class="best"><b>Best for:</b> schools, events, organizations</p></article>
+        <article><h3>Apparel</h3><p>T-shirt graphics and mockups, ready to show to customers or send to print.</p><p class="best"><b>Best for:</b> clothing lines, church and group shirts</p></article>
+        <article><h3>PowerPoints</h3><p>Clean slide decks that keep an audience following along.</p><p class="best"><b>Best for:</b> talks, lessons, pitches</p></article>
+        <article><h3>Food &amp; Menus</h3><p>Menus and food designs that make people hungry before they order.</p><p class="best"><b>Best for:</b> cafés, restaurants, food sellers</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <p class="label">Pricing</p>
+      <h2 class="h2" style="margin-top:10px">Pick what fits your project.</h2>
+      <div class="price">
+        <article class="featured">
+          <p class="label">Long-term · full-time</p>
+          <p class="amt">~$400<small>/month</small></p>
+          <p>A dedicated designer for your brand, church or shop. Best if you post and print often and want consistent, on-brand design.</p>
+          <a class="btn primary" href="#contact">Let's talk</a>
+        </article>
+        <article>
+          <p class="label">Short-term · per project</p>
+          <p class="amt">$10–$100<small>/project</small></p>
+          <p>One-off pieces like an ad, poster, tract, shirt design or slide deck. The price depends on size and how many pieces you need.</p>
+          <a class="btn" href="#contact">Get a quote</a>
+        </article>
+      </div>
+      <p class="hint" style="margin:20px 0 0">All prices in USD. Final price is confirmed once I see your brief.</p>
+    </div>
+  </section>
+
+  <section id="process" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <p class="label">How it works</p>
+      <h2 class="h2" style="margin-top:10px">Simple from brief to files.</h2>
+      <div class="steps">
+        <div><h3>Send your brief</h3><p>Tell me what it's for, who it's for, and share your text, logo and any references.</p></div>
+        <div><h3>Get a first draft</h3><p>I design it in Canva or Photoshop and send a draft for you to react to.</p></div>
+        <div><h3>Refine and receive</h3><p>We adjust until it's right, then you get the files ready to post or print.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="border-top:1px solid var(--line)">
+    <div class="wrap about">
+      <figure class="portrait"><img src="images/paul-portrait.jpg" alt="Portrait of Paul Daveeh Mejia, graphic designer" width="750" height="900" loading="lazy"></figure>
+      <div>
+        <p class="label">About me</p>
+        <h2 class="h2" style="margin:10px 0 22px">Paul Daveeh Mejia, 19, designer from the Philippines.</h2>
+        <p>I’m a passionate graphic designer who enjoys turning ideas into creative and meaningful designs. I work with tools like Canva and Adobe Photoshop to bring concepts to life, whether it’s social media graphics, banners, invitations, or other visual content.</p>
+        <p>I believe that there’s always room for improvement, so I’m open to constructive criticism and feedback that can help me grow as a designer. I’m also willing to learn new skills, explore different styles, and try new things to improve my work. For me, every project is an opportunity to learn something new, improve my creativity, and create better designs.</p>
+        <p>I may not know everything yet, but I’m always willing to learn, improve, and give my best in every project.</p>
+        <div class="tools"><span>Canva</span><span>Adobe Photoshop</span><span>Claude AI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Have a project in mind?</h2>
+      <p>Message me with what you need and I'll get back to you.</p>
+      <div class="links">
+        <a class="btn primary" href="https://www.facebook.com/pauldaveeh.mejia" target="_blank" rel="noopener">Message me on Facebook</a>
+        <a class="btn" href="https://www.linkedin.com/in/mejia-paul-daveeh-473355373/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://v2.onlinejobs.ph/jobseekers" target="_blank" rel="noopener">OnlineJobs.ph</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr"></span> Paul Daveeh Mejia</span><span>Designed and built by hand.</span></div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project viewer">
+  <button class="x" aria-label="Close">×</button>
+  <button class="prev" aria-label="Previous">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="next" aria-label="Next">›</button>
+</div>
+
+<script>
+/* =====================================================================
+   HOW TO ADD OR CHANGE WORK
+   1. Put the image in the /images folder (JPG, about 1200px wide).
+   2. Add one line to the list below.
+        cat:  ads | tracts | apparel | posters
+        feat: true  -> also shown in the "All" view (keep ~15 of your best)
+   3. Upload the changed files to GitHub. The site updates in a minute.
+   ===================================================================== */
+const projects = [
+  /* ---- ADS ---- */
+  { img:"balayar-highlights-1.jpg", title:"Balayar Highlights", type:"Social media ad", cat:"ads", feat:true, alt:"Balayar hair extensions ad with four brand highlights over a before and after hair photo" },
+  { img:"balayar-highlights-2.jpg", title:"Balayar Highlights II", type:"Social media ad", cat:"ads", alt:"Balayar hair extensions ad showing long blonde ombre hair with feature callouts" },
+  { img:"simple-watch-ad.jpg", title:"Mega Watch", type:"Product ad", cat:"ads", feat:true, alt:"Simple Watch Co. Mega Watch ad with a black dial watch on a white pedestal" },
+  { img:"airvolution-benefits.jpg", title:"Airvolution Benefits", type:"Product ad", cat:"ads", feat:true, alt:"Airvolution nasal strips ad with four sleep benefits on a purple background" },
+  { img:"airvolution-hero.jpg", title:"Airvolution Hero", type:"Product ad", cat:"ads", alt:"Two Airvolution nasal strip pouches floating on a purple gradient" },
+  { img:"cushion-spine-compare.jpg", title:"Proper Sitting Support", type:"Gel cushion ad", cat:"ads", feat:true, alt:"Gel seat cushion ad comparing a painful spine with a healthy spine" },
+  { img:"cushion-orange-ad.jpg", title:"Pressure Redistribution", type:"Gel cushion ad", cat:"ads", feat:true, alt:"Gel seat cushion ad with arrows showing pressure spreading across the cushion on an orange background" },
+  { img:"cushion-now-its-back.jpg", title:"Now It's Back", type:"Gel cushion ad", cat:"ads", feat:true, alt:"Gel seat cushion promo ad with a glowing cushion on an amber background" },
+  { img:"cushion-pressure-relief.jpg", title:"Pressure Relief", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad with a before and after of a man sitting at a desk" },
+  { img:"cushion-pressure-sores.jpg", title:"Pressure Redistribution II", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad variation about pressure redistribution" },
+  { img:"cushion-gel-cushion.jpg", title:"Gel Cushion", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad variation about sitting pain" },
+  { img:"cushion-hours-of-pain.jpg", title:"Hours of Pain", type:"Gel cushion ad", cat:"ads", alt:"Dark blue gel seat cushion ad asking how many hours of pain you sat through today" },
+  { img:"cushion-hospital-grade.jpg", title:"Cells Flex Outward", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion cutaway diagram showing the cells flexing under a pelvis" },
+  { img:"cushion-tailbone-notebook.jpg", title:"Tailbone Pain", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad on a notebook-paper background with feature callouts" },
+  { img:"cushion-tailbone-numbness.jpg", title:"Tailbone Relief", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad headline about tailbone pain and numbness on a light blue background" },
+  { img:"cushion-tailbone-spine.jpg", title:"Spine Comparison", type:"Gel cushion ad", cat:"ads", alt:"Gel cushion ad comparing a spine with sitting pain to a healthy spine" },
+  { img:"cushion-sciatica-testimonial.jpg", title:"Customer Review Ad", type:"Gel cushion ad", cat:"ads", alt:"Gel seat cushion ad built around a customer review" },
+
+  /* ---- TRACTS & PRINT ---- */
+  { img:"tract-good-person.jpg", title:"Are You a Good Person?", type:"Gospel tract", cat:"tracts", feat:true, alt:"Gospel tract spread with the headline Are you a good person and silhouette with outstretched arms" },
+  { img:"tract-who-is-jesus.jpg", title:"Who Is Jesus?", type:"Gospel tract", cat:"tracts", feat:true, alt:"Gospel tract spread with an empty tomb at sunrise and the headline Who is Jesus" },
+  { img:"tract-dear-skeptic.jpg", title:"Dear Skeptic", type:"Tri-fold tract", cat:"tracts", feat:true, alt:"Tri-fold gospel tract titled Dear Skeptic with a cosmic starburst cover" },
+  { img:"tract-admiral-towing-card.jpg", title:"Admiral Towing Gospel Card", type:"Two-sided card", cat:"tracts", feat:true, alt:"Two-sided card for Admiral Towing with the Matthew 4:19 fishers of men verse" },
+  { img:"tract-facing-the-facts.jpg", title:"Facing the Facts", type:"Tri-fold tract", cat:"tracts", alt:"Tri-fold gospel tract titled Facing the Facts with a crown of thorns cover" },
+  { img:"tract-gospel-in-a-nutshell.jpg", title:"The Gospel in a Nutshell", type:"Tri-fold tract", cat:"tracts", alt:"Tri-fold gospel tract titled The Gospel in a Nutshell with a cross inside a walnut shell" },
+  { img:"tract-dear-teen-cover.jpg", title:"Dear Teen, You Are Not a Diagnosis", type:"Booklet cover", cat:"tracts", alt:"Booklet cover for Dear Teen You Are Not a Diagnosis with teens playing volleyball at sunset" },
+
+  /* ---- APPAREL ---- */
+  { img:"apparel-1-cross-3-nails.jpg", title:"1 Cross 3 Nails 4Given", type:"Apparel design", cat:"apparel", feat:true, alt:"Colorful glitch-style 1 Cross 3 Nails 4Given shirt design on white and black tees" },
+  { img:"apparel-light-of-the-world.jpg", title:"Light of the World", type:"Apparel design", cat:"apparel", feat:true, alt:"Brush lettering Light of the World shirt design on white and black tees" },
+  { img:"apparel-renewing-1.jpg", title:"Renewing — Pink & Gold", type:"Apparel mockup", cat:"apparel", feat:true, alt:"Renewing our faith united with Christ shirt mockups in pink and gold" },
+  { img:"apparel-renewing-2.jpg", title:"Renewing — Stone & Peach", type:"Apparel mockup", cat:"apparel", alt:"Renewing our faith united with Christ shirt mockups in stone and peach" },
+
+  /* ---- POSTERS ---- */
+  { img:"school-scholarships.jpg", title:"Scholarships Offered", type:"School poster", cat:"posters", feat:true, alt:"Unida Christian Colleges poster listing three scholarships for college students" },
+  { img:"school-enroll-now.jpg", title:"Enrollment Countdown", type:"School poster", cat:"posters", feat:true, alt:"Unida Christian Colleges enrollment poster with two students and a QR code" },
+  { img:"sports-billiards.jpg", title:"Billiards Tryout", type:"Event poster", cat:"posters", alt:"Unida Christian Colleges billiards tryout schedule poster with a rack of pool balls" },
+  { img:"sports-volleyball.jpg", title:"Volleyball Tryout", type:"Event poster", cat:"posters", alt:"Unida Christian Colleges volleyball tryout schedule poster with a volleyball" }
+];
+const cats = { all:"Highlights", ads:"Ads", tracts:"Tracts & Print", apparel:"Apparel", posters:"Posters" };
+
+const grid = document.getElementById("grid"), filters = document.getElementById("filters"), hint = document.getElementById("hint");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* build cards */
+projects.forEach((p,i)=>{
+  const b = document.createElement("button");
+  b.className="item reveal"; b.dataset.cat=p.cat; b.dataset.feat=p.feat?"1":"0"; b.dataset.i=i;
+  b.setAttribute("aria-label","View "+p.title);
+  b.innerHTML = `<img src="images/${p.img}" alt="${p.alt}" loading="lazy"><div class="cap"><b>${p.title}</b><span>${p.type}</span></div>`;
+  b.addEventListener("click",()=>openLb(+b.dataset.i));
+  grid.appendChild(b);
+});
+document.getElementById("count").textContent = projects.length;
+
+/* filters */
+function apply(k){
+  grid.classList.toggle("two", k==="tracts");
+  grid.querySelectorAll(".item").forEach(el=>{
+    el.hidden = k==="all" ? el.dataset.feat!=="1" : el.dataset.cat!==k;
+  });
+  const n = grid.querySelectorAll(".item:not([hidden])").length;
+  hint.textContent = k==="all"
+    ? `Showing ${n} highlights of ${projects.length} pieces. Use the filters to see everything in a category.`
+    : `${n} ${cats[k].toLowerCase()} pieces. Click any design to view it larger.`;
+  observe();
+}
+Object.entries(cats).forEach(([k,label])=>{
+  const b=document.createElement("button");
+  const n = k==="all" ? "" : projects.filter(p=>p.cat===k).length;
+  b.innerHTML = label + (n?`<small>${n}</small>`:"");
+  b.setAttribute("aria-pressed",k==="all");
+  b.addEventListener("click",()=>{
+    filters.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true"); apply(k);
+  });
+  filters.appendChild(b);
+});
+
+/* fade-in on scroll */
+const io = "IntersectionObserver" in window && !reduce ? new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -6% 0px"}) : null;
+function observe(){ grid.querySelectorAll(".item:not([hidden]):not(.in)").forEach(el=> io ? io.observe(el) : el.classList.add("in")); }
+apply("all");
+
+/* lightbox */
+const lb=document.getElementById("lb"), lbImg=document.getElementById("lbImg"), lbCap=document.getElementById("lbCap");
+let cur=0, lastFocus=null;
+const visibleIdx = ()=>[...grid.querySelectorAll(".item")].filter(e=>!e.hidden).map(e=>+e.dataset.i);
+function show(i){
+  const p=projects[i]; cur=i;
+  lbImg.src="images/"+p.img; lbImg.alt=p.alt;
+  lbCap.innerHTML=`<b>${p.title}</b><small>${p.type}</small><a href="images/${p.img}" target="_blank" rel="noopener">Open full size ↗</a>`;
+}
+function openLb(i){lastFocus=document.activeElement;show(i);lb.classList.add("open");document.body.style.overflow="hidden";lb.querySelector(".x").focus()}
+function closeLb(){lb.classList.remove("open");document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+function step(d){const l=visibleIdx();const n=(l.indexOf(cur)+d+l.length)%l.length;show(l[n])}
+lb.querySelector(".x").onclick=closeLb;
+lb.querySelector(".prev").onclick=()=>step(-1);
+lb.querySelector(".next").onclick=()=>step(1);
+lb.addEventListener("click",e=>{if(e.target===lb)closeLb()});
+document.addEventListener("keydown",e=>{
+  if(!lb.classList.contains("open"))return;
+  if(e.key==="Escape")closeLb();
+  if(e.key==="ArrowLeft")step(-1);
+  if(e.key==="ArrowRight")step(1);
+});
+
+/* live Philippines clock + year */
+function tick(){
+  try{ document.getElementById("clock").textContent = new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Manila",hour:"2-digit",minute:"2-digit"}); }catch(e){}
+}
+tick(); setInterval(tick,30000);
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
