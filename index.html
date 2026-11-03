@@ -377,6 +377,40 @@
   .alt-contact .t{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px!important}
   @media(max-width:760px){.cal{grid-template-columns:1fr}.pf-row{grid-template-columns:1fr}.pf-steps li{font-size:0}.pf-steps li b{font-size:.72rem;margin:0}.pf-steps li.on{font-size:0}}
   @media(prefers-reduced-motion:reduce){.pf-step.on,.pf-done,.picks li{animation:none}.pf-done circle,.pf-done path{animation:none;stroke-dashoffset:0}}
+
+  .marquee .tool{display:inline-flex;align-items:center;gap:12px}
+  .marquee .tool img{height:34px;width:auto;border-radius:8px;display:block}
+  .facts div:last-child:nth-child(odd){grid-column:1/-1}
+  /* partner folders */
+  .folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px;margin:10px 0 24px}
+  .folders[hidden],.pbar[hidden]{display:none}
+  .folder{position:relative;display:block;width:100%;height:280px;padding:0;border:0;background:none;color:var(--ink);cursor:pointer;text-align:left;font:inherit}
+  .folders:not([hidden]) .folder{animation:fup .7s var(--ease) both;animation-delay:calc(var(--i,0)*100ms)}
+  @keyframes fup{from{opacity:0;translate:0 26px}to{opacity:1;translate:0 0}}
+  .f-back{position:absolute;inset:24px 0 0 0;background:#1d1b18;border:1px solid var(--line);border-radius:4px 18px 18px 18px;transition:border-color .3s}
+  .f-back::before{content:"";position:absolute;left:-1px;top:-25px;width:46%;height:25px;background:#1d1b18;border:1px solid var(--line);border-bottom:0;border-radius:12px 12px 0 0;transition:border-color .3s}
+  .f-back::after{content:"";position:absolute;left:0;top:-1px;width:calc(46% - 2px);height:2px;background:#1d1b18}
+  .f-thumbs{position:absolute;left:9%;right:9%;top:52px;height:170px;z-index:1}
+  .f-thumbs img{position:absolute;bottom:0;width:46%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:3px solid #f2efe9;box-shadow:0 10px 24px -8px rgba(0,0,0,.7);transition:translate .55s var(--ease),rotate .55s var(--ease)}
+  .f-thumbs img:nth-child(1){left:0;rotate:-8deg}
+  .f-thumbs img:nth-child(2){left:27%;z-index:2;rotate:1deg}
+  .f-thumbs img:nth-child(3){right:0;rotate:8deg}
+  .folder:hover .f-thumbs img:nth-child(1),.folder:focus-visible .f-thumbs img:nth-child(1){translate:-10px -26px;rotate:-13deg}
+  .folder:hover .f-thumbs img:nth-child(2),.folder:focus-visible .f-thumbs img:nth-child(2){translate:0 -36px;rotate:0deg}
+  .folder:hover .f-thumbs img:nth-child(3),.folder:focus-visible .f-thumbs img:nth-child(3){translate:10px -26px;rotate:13deg}
+  .f-front{position:absolute;left:0;right:0;bottom:0;height:47%;z-index:3;background:linear-gradient(180deg,#191715,#121110);border:1px solid var(--line);border-radius:18px;padding:0 24px;display:flex;flex-direction:column;justify-content:center;transition:border-color .3s,translate .4s var(--ease)}
+  .f-front b{font-family:Fraunces,serif;font-size:1.6rem;line-height:1.1}
+  .f-front small{color:var(--muted);font-size:.88rem;margin-top:3px}
+  .f-front em{font-style:normal;color:var(--accent);font-weight:600;font-size:.9rem;margin-top:8px}
+  .f-front em::after{content:" →";display:inline-block;transition:translate .3s var(--ease)}
+  .folder:hover .f-front em::after{translate:5px 0}
+  .folder:hover .f-back,.folder:hover .f-back::before,.folder:hover .f-front,.folder:focus-visible .f-front{border-color:var(--accent)}
+  .folder:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
+  .pbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 22px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);animation:fup .5s var(--ease)}
+  .pbar .btn{padding:9px 18px;font-size:.9rem}
+  .pbar b{font-family:Fraunces,serif;font-size:1.5rem;display:block;line-height:1.15}
+  .pbar span{color:var(--muted);font-size:.92rem}
+  @media(prefers-reduced-motion:reduce){.folders:not([hidden]) .folder,.pbar{animation:none}}
 </style>
 </head>
 <body>
@@ -443,6 +477,8 @@
         <div class="filters rv" role="group" aria-label="Filter projects" id="filters"></div>
       </div>
       <p class="hint" id="hint"></p>
+      <div class="pbar" id="pbar" hidden><button type="button" class="btn" id="pback">← All partners</button><div><b id="pname"></b><span id="pabout"></span></div></div>
+      <div class="folders" id="folders" hidden></div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
@@ -513,7 +549,6 @@
 
         <dl class="facts rv" data-d="200">
           <div><dt>Name</dt><dd>Paul Daveeh Mejia</dd></div>
-          <div><dt>Age</dt><dd>19 years old</dd></div>
           <div><dt>Location</dt><dd>Philippines<small>Local time <span class="phtime">--:--</span></small></dd></div>
           <div><dt>Experience</dt><dd>4+ years in graphic design</dd></div>
           <div><dt>Tools</dt><dd>Canva · Adobe Photoshop</dd></div>
@@ -747,23 +782,28 @@ const projects = [
   { img:"sports-volleyball.jpg", title:"Volleyball Tryout", type:"Event poster", cat:"posters", alt:"Unida Christian Colleges volleyball tryout schedule poster with a volleyball" },
 
   /* ---- MOCK-UPS ---- */
-  { img:"mockup-love-scroll.jpg", title:"Love Is Patient — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", alt:"Hanging scroll print with black brush lettering Love patient, love is kind on a teal wall" },
-  { img:"mockup-love-mug.jpg", title:"Love Is Patient — Mug", type:"Zeafar · Mug mock-up", cat:"companies", alt:"Black mug in a gift box with white brush lettering Love patient, love is kind, 1 Corinthians 13:4" },
-  { img:"mockup-light-of-the-world-mug.jpg", title:"Light of the World — Mug", type:"Zeafar · Mug mock-up", cat:"companies", alt:"Black mug in a gift box with white brush lettering Light of the World, Matthew 5:14" },
-  { img:"mockup-trust-mug.jpg", title:"Trust in the Lord — Mug", type:"Zeafar · Mug mock-up", cat:"companies", alt:"Black mug in a gift box with white brush lettering Trust in the Lord, Proverbs 3:5" },
-  { img:"mockup-fearful-mug.jpg", title:"Fearful and Wonderful — Mug", type:"Zeafar · Mug mock-up", cat:"companies", alt:"Black mug in a gift box with white brush lettering Fearful and Wonderful, Psalm 139:14" },
-  { img:"mockup-peace-mug.jpg", title:"Peace I Give You — Mug", type:"Zeafar · Mug mock-up", cat:"companies", alt:"Black mug in a gift box with white brush lettering Peace I give you, John 14:27" },
-  { img:"mockup-walk-by-faith-journal.jpg", title:"Walk by Faith — Journal", type:"Zeafar · Journal mock-up", cat:"companies", alt:"Black journal cover with white brush lettering Walk by Faith, 2 Corinthians 5:7" },
-  { img:"mockup-light-of-the-world-journal.jpg", title:"Light of the World — Journal", type:"Zeafar · Journal mock-up", cat:"companies", alt:"Black journal cover with white brush lettering Light of the World" },
-  { img:"mockup-love-journal.jpg", title:"Love Is Patient — Journal", type:"Zeafar · Journal mock-up", cat:"companies", alt:"Black journal cover with white brush lettering Love patient, love is kind" },
-  { img:"mockup-walk-by-faith-scroll.jpg", title:"Walk by Faith — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", alt:"Hanging scroll print with black brush lettering Walk by Faith on a teal wall" },
-  { img:"mockup-light-of-the-world-scroll.jpg", title:"Light of the World — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", alt:"Hanging scroll print with black brush lettering Light of the World on a teal wall" },
+  { img:"mockup-love-scroll.jpg", title:"Love Is Patient — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", partner:"zeafar", alt:"Hanging scroll print with black brush lettering Love patient, love is kind on a teal wall" },
+  { img:"mockup-love-mug.jpg", title:"Love Is Patient — Mug", type:"Zeafar · Mug mock-up", cat:"companies", partner:"zeafar", alt:"Black mug in a gift box with white brush lettering Love patient, love is kind, 1 Corinthians 13:4" },
+  { img:"mockup-light-of-the-world-mug.jpg", title:"Light of the World — Mug", type:"Zeafar · Mug mock-up", cat:"companies", partner:"zeafar", alt:"Black mug in a gift box with white brush lettering Light of the World, Matthew 5:14" },
+  { img:"mockup-trust-mug.jpg", title:"Trust in the Lord — Mug", type:"Zeafar · Mug mock-up", cat:"companies", partner:"zeafar", alt:"Black mug in a gift box with white brush lettering Trust in the Lord, Proverbs 3:5" },
+  { img:"mockup-fearful-mug.jpg", title:"Fearful and Wonderful — Mug", type:"Zeafar · Mug mock-up", cat:"companies", partner:"zeafar", alt:"Black mug in a gift box with white brush lettering Fearful and Wonderful, Psalm 139:14" },
+  { img:"mockup-peace-mug.jpg", title:"Peace I Give You — Mug", type:"Zeafar · Mug mock-up", cat:"companies", partner:"zeafar", alt:"Black mug in a gift box with white brush lettering Peace I give you, John 14:27" },
+  { img:"mockup-walk-by-faith-journal.jpg", title:"Walk by Faith — Journal", type:"Zeafar · Journal mock-up", cat:"companies", partner:"zeafar", alt:"Black journal cover with white brush lettering Walk by Faith, 2 Corinthians 5:7" },
+  { img:"mockup-light-of-the-world-journal.jpg", title:"Light of the World — Journal", type:"Zeafar · Journal mock-up", cat:"companies", partner:"zeafar", alt:"Black journal cover with white brush lettering Light of the World" },
+  { img:"mockup-love-journal.jpg", title:"Love Is Patient — Journal", type:"Zeafar · Journal mock-up", cat:"companies", partner:"zeafar", alt:"Black journal cover with white brush lettering Love patient, love is kind" },
+  { img:"mockup-walk-by-faith-scroll.jpg", title:"Walk by Faith — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", partner:"zeafar", alt:"Hanging scroll print with black brush lettering Walk by Faith on a teal wall" },
+  { img:"mockup-light-of-the-world-scroll.jpg", title:"Light of the World — Scroll", type:"Zeafar · Wall hanging mock-up", cat:"companies", partner:"zeafar", alt:"Hanging scroll print with black brush lettering Light of the World on a teal wall" },
 ];
 
 /* image sizes (keeps the layout from jumping while pictures load).
    New images work without an entry here. */
 const DIMS = {"airvolution-benefits.jpg": [1200, 1200], "airvolution-hero.jpg": [1200, 1200], "apparel-1-cross-3-nails.jpg": [1200, 1366], "apparel-light-of-the-world.jpg": [1200, 1366], "apparel-renewing-1.jpg": [1200, 900], "apparel-renewing-2.jpg": [1200, 900], "balayar-highlights-1.jpg": [1080, 1080], "balayar-highlights-2.jpg": [1080, 1080], "creating-crowds-cant-afford.jpg": [1080, 1080], "creating-crowds-doesnt-suck.jpg": [1080, 1080], "creating-crowds-hate-editing.jpg": [300, 250], "cushion-hospital-grade.jpg": [1080, 1080], "cushion-hours-of-pain.jpg": [1080, 1080], "cushion-now-its-back.jpg": [1080, 1080], "cushion-orange-ad.jpg": [1080, 1080], "cushion-pressure-relief.jpg": [1080, 1080], "cushion-sciatica-testimonial.jpg": [1080, 1080], "cushion-spine-compare.jpg": [1080, 1080], "cushion-tailbone-notebook.jpg": [1080, 1080], "cushion-tailbone-numbness.jpg": [1080, 1080], "embroidery-hats.jpg": [1080, 1080], "jersey-jireh-mbc.jpg": [1244, 1400], "jersey-mighty-men.jpg": [768, 1024], "mockup-fearful-mug.jpg": [1080, 1080], "mockup-light-of-the-world-journal.jpg": [1080, 1080], "mockup-light-of-the-world-mug.jpg": [1080, 1080], "mockup-light-of-the-world-scroll.jpg": [1080, 1080], "mockup-love-journal.jpg": [1080, 1080], "mockup-love-mug.jpg": [1080, 1080], "mockup-love-scroll.jpg": [1080, 1080], "mockup-peace-mug.jpg": [1080, 1080], "mockup-trust-mug.jpg": [1080, 1080], "mockup-walk-by-faith-journal.jpg": [1080, 1080], "mockup-walk-by-faith-scroll.jpg": [1080, 1080], "nuvon-apoquel-safe.jpg": [1080, 1080], "nuvon-spray.jpg": [1080, 1080], "nuvon-two-ways.jpg": [1080, 1080], "paul-portrait.jpg": [750, 900], "pet-apparel-favorites.jpg": [960, 1200], "pet-apparel-hoodies.jpg": [960, 1200], "pet-apparel-tees.jpg": [960, 1200], "school-enroll-now.jpg": [1080, 1350], "school-scholarships.jpg": [1080, 1350], "simple-watch-ad.jpg": [940, 788], "sports-billiards.jpg": [1080, 1080], "sports-volleyball.jpg": [1080, 1080], "tract-admiral-towing-card.jpg": [1300, 1083], "tract-dear-skeptic.jpg": [1300, 793], "tract-dear-teen-cover.jpg": [1300, 1017], "tract-facing-the-facts.jpg": [1800, 720], "tract-good-person.jpg": [1300, 848], "tract-gospel-in-a-nutshell.jpg": [1800, 720], "tract-who-is-jesus.jpg": [1300, 1017], "victory-in-jesus.jpg": [1080, 1080], "victory-things-to-bring.jpg": [1080, 1080], "victory-things-to-note.jpg": [1080, 1080], "victory-venue.jpg": [1080, 1080]};
 
+/* ---- PARTNERS ("Companies I've Worked With" folders) ----
+   To add a partner: 1) add an object here, 2) give each of their works  cat:"companies", partner:"their-id"  in the projects list above. */
+const partners = [
+  { id:"zeafar", name:"Zeafar", about:"Faith and lifestyle products. Mug, journal and wall print mock-ups." }
+];
 const cats = { all:"Highlights", ads:"Advertisements", tracts:"Print & Layout Works", apparel:"Apparel", posters:"Flyers", companies:"Companies I've Worked With" };
 
 /* ---------- helpers ---------- */
@@ -796,8 +836,11 @@ let isReady = false;
 
 /* ---------- marquee ---------- */
 (function(){
-  const items=["Advertisements","Print & layout","Flyers","Apparel","Partner brands","PowerPoints","Food & menus","Canva","Adobe Photoshop"];
-  const one=items.map(t=>`<span>${t}</span><i>✦</i>`).join("");
+  const items=["Advertisements", "Print & layout", "Flyers", "Apparel", "Partner brands", "Visual Presentations", "Food & menus"];
+  /* tool logos: upload logo-canva.png and logo-photoshop.png next to index.html and they appear here automatically */
+  const tools=[["Canva","logo-canva.png"],["Adobe Photoshop","logo-photoshop.png"]];
+  const toolHtml=tools.map(([n,f])=>`<span class="tool"><img src="${f}" alt="" height="34" onerror="this.remove()">${n}</span><i>✦</i>`).join("");
+  const one=items.map(t=>`<span>${t}</span><i>✦</i>`).join("")+toolHtml;
   $("#track").innerHTML=one+one+one+one;
 })();
 
@@ -806,13 +849,22 @@ const grid=$("#grid"), filters=$("#filters"), hint=$("#hint");
 projects.forEach((p,i)=>{
   const d=DIMS[p.img]||[1000,1000];
   const b=document.createElement("button");
-  b.className="item rv fx tilt"; b.dataset.cat=p.cat; b.dataset.feat=p.feat?"1":"0"; b.dataset.i=i; b.dataset.tilt="4"; b.dataset.cursor="View";
+  b.className="item rv fx tilt"; b.dataset.cat=p.cat; b.dataset.feat=p.feat?"1":"0"; b.dataset.i=i; b.dataset.partner=p.partner||""; b.dataset.tilt="4"; b.dataset.cursor="View";
   b.setAttribute("aria-label","View "+p.title);
   b.innerHTML=`<span class="ph"><img src="${p.img}" alt="${p.alt}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async"></span><div class="cap"><b>${p.title}</b><span>${p.type}</span></div>`;
   b.addEventListener("click",()=>openLb(i));
   grid.appendChild(b);
 });
 $("#count").dataset.count=projects.length;
+const folders=$("#folders"), pbar=$("#pbar");
+partners.forEach((pt,i)=>{
+  const mine=projects.filter(p=>p.partner===pt.id), b=document.createElement("button");
+  b.type="button"; b.className="folder"; b.style.setProperty("--i",i);
+  b.setAttribute("aria-label",`Open ${pt.name} folder, ${mine.length} works`);
+  b.innerHTML=`<span class="f-back"></span><span class="f-thumbs">${mine.slice(0,3).map(p=>`<img src="${p.img}" alt="" loading="lazy">`).join("")}</span><span class="f-front"><b>${pt.name}</b><small>${mine.length} ${mine.length===1?"work":"works"}</small><em>Open folder</em></span>`;
+  b.addEventListener("click",()=>openPartner(pt.id));
+  folders.appendChild(b);
+});
 
 const gridIO="IntersectionObserver" in window ? new IntersectionObserver(es=>{
   let k=0;
@@ -825,7 +877,7 @@ function watchItems(){
   });
 }
 
-let currentFilter="all", filterTimer=null;
+let currentFilter="all", filterTimer=null, currentPartner=null;
 function apply(k,instant){
   currentFilter=k;
   const items=$$(".item",grid);
@@ -835,12 +887,15 @@ function apply(k,instant){
     items.forEach(el=>{
       el.classList.remove("leave","in"); if(gridIO) gridIO.unobserve(el);
       el.style.setProperty("--d","0ms");
-      el.hidden = k==="all" ? el.dataset.feat!=="1" : el.dataset.cat!==k;
+      el.hidden = k==="all" ? el.dataset.feat!=="1" : k==="companies" ? (!currentPartner || el.dataset.partner!==currentPartner) : el.dataset.cat!==k;
     });
     const n=$$(".item:not([hidden])",grid).length;
+    const inCo=k==="companies", pr=partners.find(x=>x.id===currentPartner);
+    folders.hidden=!(inCo&&!pr); pbar.hidden=!(inCo&&pr);
+    if(inCo&&pr){ $("#pname").textContent=pr.name; $("#pabout").textContent=pr.about; }
     hint.textContent = k==="all"
       ? `Showing ${n} highlights of ${projects.length} pieces. Use the filters to see everything in a category.`
-      : k==="companies" ? `${n} mock-ups for Zeafar, a company I partnered with. Click any design to view it larger.` : `${n} pieces in ${cats[k]}. Click any design to view it larger.`;
+      : k==="companies" ? (pr ? `${n} ${n===1?"work":"works"} for ${pr.name}. Click any design to view it larger.` : "Companies I have partnered with. Open a folder to see my work for each one.") : `${n} pieces in ${cats[k]}. Click any design to view it larger.`;
     hint.style.opacity=1;
     if(isReady) watchItems();
   };
@@ -852,16 +907,19 @@ function apply(k,instant){
 const filterBtns={};
 Object.entries(cats).forEach(([k,label])=>{
   const b=document.createElement("button");
-  const n=k==="all"?"":projects.filter(p=>p.cat===k).length;
+  const n=k==="all"?"":k==="companies"?partners.length:projects.filter(p=>p.cat===k).length;
   b.innerHTML=label+(n?`<small>${n}</small>`:"");
   b.setAttribute("aria-pressed",k==="all");
   b.addEventListener("click",()=>setFilter(k));
   filters.appendChild(b); filterBtns[k]=b;
 });
 function setFilter(k){
+  currentPartner=null;
   Object.entries(filterBtns).forEach(([key,btn])=>btn.setAttribute("aria-pressed",key===k));
   apply(k);
 }
+function openPartner(id){ currentPartner=id; apply("companies"); }
+$("#pback").addEventListener("click",()=>{ currentPartner=null; apply("companies"); });
 apply("all",true);
 
 /* service cards jump to the matching filter */
