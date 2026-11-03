@@ -379,7 +379,7 @@
   @media(prefers-reduced-motion:reduce){.pf-step.on,.pf-done,.picks li{animation:none}.pf-done circle,.pf-done path{animation:none;stroke-dashoffset:0}}
 
   .marquee .tool{display:inline-flex;align-items:center;gap:12px}
-  .marquee .tool img{height:34px;width:auto;border-radius:8px;display:block}
+  .marquee .tool img{height:38px;width:auto;display:block;filter:drop-shadow(0 0 1px rgba(255,255,255,.4))}
   .facts div:last-child:nth-child(odd){grid-column:1/-1}
   /* partner folders */
   .folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px;margin:10px 0 24px}
@@ -839,7 +839,7 @@ let isReady = false;
   const items=["Advertisements", "Print & layout", "Flyers", "Apparel", "Partner brands", "Visual Presentations", "Food & menus"];
   /* tool logos: upload logo-canva.png and logo-photoshop.png next to index.html and they appear here automatically */
   const tools=[["Canva","logo-canva.png"],["Adobe Photoshop","logo-photoshop.png"]];
-  const toolHtml=tools.map(([n,f])=>`<span class="tool"><img src="${f}" alt="" height="34" onerror="this.remove()">${n}</span><i>✦</i>`).join("");
+  const toolHtml=tools.map(([n,f])=>`<span class="tool"><img src="${f}" alt="" height="38" onerror="this.remove()">${n}</span><i>✦</i>`).join("");
   const one=items.map(t=>`<span>${t}</span><i>✦</i>`).join("")+toolHtml;
   $("#track").innerHTML=one+one+one+one;
 })();
