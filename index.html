@@ -279,6 +279,104 @@
     .cursor{display:none}
     .track{animation:none}
   }
+  /* ---------- project form ---------- */
+  .contact h2{max-width:none}
+  .contact .sub{max-width:54ch;margin:0 auto 8px}
+  .pf{max-width:880px;margin:34px auto 0;text-align:left;background:linear-gradient(180deg,#151311,#111010);border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative;box-shadow:0 40px 80px -50px rgba(255,90,54,.35)}
+  .pf-head{padding:24px clamp(20px,4vw,38px) 0}
+  .pf-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;list-style:none;padding:0}
+  .pf-steps li{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:12px;position:relative;transition:color .3s}
+  .pf-steps li::before,.pf-steps li::after{content:"";position:absolute;top:0;left:0;height:3px;border-radius:3px}
+  .pf-steps li::before{right:0;background:var(--line)}
+  .pf-steps li::after{width:0;background:linear-gradient(90deg,var(--accent),#ff9a7e);transition:width .7s var(--ease)}
+  .pf-steps li.on,.pf-steps li.done{color:var(--ink)}
+  .pf-steps li.on::after,.pf-steps li.done::after{width:100%}
+  .pf-steps b{color:var(--accent);margin-right:6px;font-weight:600}
+  .pf-body{padding:30px clamp(20px,4vw,38px) 6px}
+  .pf-step{display:none;border:0;padding:0;min-width:0}
+  .pf-step.on{display:block;animation:pfin .6s var(--ease)}
+  @keyframes pfin{from{opacity:0;translate:var(--dx,26px) 0}to{opacity:1;translate:0 0}}
+  .pf-step h3{font-family:Fraunces,serif;font-size:clamp(1.55rem,3.6vw,2.15rem);line-height:1.15;margin-bottom:6px;outline:none}
+  .pf-hint{color:var(--muted);font-size:.95rem;margin-bottom:22px!important}
+  .contact .pf p{margin-bottom:0}
+  .pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+  .opt{position:relative;display:block}
+  .opt input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0;z-index:2}
+  .opt>span{display:flex;flex-direction:column;gap:2px;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;background:#0e0d0b;font-weight:600;transition:border-color .25s,background .25s,translate .25s var(--ease);position:relative}
+  .opt>span small{font-weight:400;color:var(--muted);font-size:.84rem}
+  .opt:hover>span{border-color:#4a463e;translate:0 -2px}
+  .opt input:checked+span{border-color:var(--accent);background:rgba(255,90,54,.1)}
+  .opt input:checked+span::after{content:"✓";position:absolute;right:14px;top:12px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.8rem;display:grid;place-items:center;animation:pop .35s var(--ease)}
+  .opt input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px}
+  @keyframes pop{from{scale:.3;opacity:0}to{scale:1;opacity:1}}
+  .pf-pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pf-pills .opt>span{flex-direction:row;padding:10px 16px;border-radius:999px;font-weight:500;font-size:.93rem}
+  .pf-pills .opt input:checked+span::after{display:none}
+  .pf-pills .opt input:checked+span{color:var(--ink)}
+  .pf label.l,.pf .l{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+  .pf .l:first-of-type{margin-top:0}
+  .pf-in{width:100%;background:#0e0d0b;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);font:inherit;font-size:1rem;transition:border-color .25s,box-shadow .25s}
+  .pf-in::placeholder{color:#5f5b54}
+  .pf-in:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,90,54,.15)}
+  textarea.pf-in{min-height:140px;resize:vertical;line-height:1.55}
+  .pf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .pf-err{color:#ff8a6b;font-size:.88rem;min-height:1.3em;margin-top:14px!important}
+  .pf-err.shake{animation:shake .4s}
+  @keyframes shake{20%,60%{translate:-6px 0}40%,80%{translate:6px 0}}
+  .pf-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px clamp(20px,4vw,38px) 28px}
+  .pf-foot .btn[hidden]{display:none}
+  .pf-foot .spacer{flex:1}
+  .pf-count{color:var(--muted);font-size:.85rem}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  /* calendar */
+  .cal{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px}
+  .cal-box{background:#0e0d0b;border:1px solid var(--line);border-radius:16px;padding:16px}
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .cal-nav b{font-family:Fraunces,serif;font-size:1.15rem}
+  .cal-nav button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:1rem;transition:border-color .2s,background .2s}
+  .cal-nav button:hover:not(:disabled){border-color:var(--accent)}
+  .cal-nav button:disabled{opacity:.3;cursor:default}
+  .cal-dow,.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+  .cal-dow span{font-size:.7rem;letter-spacing:.08em;color:var(--muted);padding:6px 0;text-transform:uppercase}
+  .cal-days button{aspect-ratio:1;border-radius:10px;border:1.5px solid transparent;background:transparent;color:var(--ink);font:inherit;font-size:.93rem;cursor:pointer;position:relative;transition:background .2s,border-color .2s,scale .2s var(--ease)}
+  .cal-days button:hover:not(:disabled){background:#1c1a17;scale:1.06}
+  .cal-days button:disabled{color:#4a463e;cursor:default;opacity:.55}
+  .cal-days button.today{border-color:#4a463e}
+  .cal-days button.sel{background:var(--accent);color:var(--accent-ink);font-weight:700}
+  .cal-days button.has::after{content:"";position:absolute;bottom:5px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--accent)}
+  .cal-days button.sel.has::after{background:var(--accent-ink)}
+  .cal-days i{pointer-events:none}
+  .slots-h{font-size:.95rem;margin-bottom:12px;min-height:2.6em}
+  .slots-h b{font-family:Fraunces,serif;font-size:1.2rem;display:block}
+  .slots-h span{color:var(--muted);font-size:.82rem}
+  .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;max-height:262px;overflow:auto;padding:2px 4px 2px 2px}
+  .slot{padding:10px 6px;border-radius:10px;border:1.5px solid var(--line);background:#0e0d0b;color:var(--ink);font:inherit;font-size:.9rem;cursor:pointer;transition:border-color .2s,background .2s,translate .2s var(--ease)}
+  .slot:hover{border-color:var(--accent);translate:0 -2px}
+  .slot.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+  .slots-empty{color:var(--muted);font-size:.92rem;padding:18px;border:1.5px dashed var(--line);border-radius:12px}
+  .picks{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px}
+  .picks li{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(255,90,54,.08);border:1px solid rgba(255,90,54,.35);border-radius:12px;padding:10px 12px;font-size:.9rem;animation:pfin .4s var(--ease);--dx:0}
+  .picks small{display:block;color:var(--muted)}
+  .picks button{background:none;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer;line-height:1;padding:4px 8px;border-radius:8px}
+  .picks button:hover{color:var(--ink);background:#26241f}
+  .flex{margin-top:16px}
+  .flex .opt>span{flex-direction:row;font-weight:500;font-size:.92rem;padding:11px 16px}
+  .recap{margin-top:22px;border:1px dashed #3a362f;border-radius:14px;padding:16px 18px;font-size:.9rem;color:#b9b5ac;display:grid;gap:6px}
+  .recap b{color:var(--ink);font-weight:600}
+  .pf-note{font-size:.82rem;color:#6f6b64;margin-top:14px!important}
+  .pf-done{display:none;text-align:center;padding:54px clamp(20px,4vw,38px) 56px}
+  .pf.sent .pf-head,.pf.sent .pf-body,.pf.sent .pf-foot{display:none}
+  .pf.sent .pf-done{display:block;animation:pfin .7s var(--ease);--dx:0}
+  .pf-done svg{width:84px;height:84px;margin-bottom:12px}
+  .pf-done circle{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:226;stroke-dashoffset:226;animation:draw .9s var(--ease) .1s forwards}
+  .pf-done path{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50;animation:draw .6s var(--ease) .8s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .pf-done h3{font-family:Fraunces,serif;font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:10px}
+  .pf-done p{max-width:46ch;margin:0 auto 12px!important;color:#b9b5ac!important}
+  .alt-contact{margin-top:34px}
+  .alt-contact .t{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px!important}
+  @media(max-width:760px){.cal{grid-template-columns:1fr}.pf-row{grid-template-columns:1fr}.pf-steps li{font-size:0}.pf-steps li b{font-size:.72rem;margin:0}.pf-steps li.on{font-size:0}}
+  @media(prefers-reduced-motion:reduce){.pf-step.on,.pf-done,.picks li{animation:none}.pf-done circle,.pf-done path{animation:none;stroke-dashoffset:0}}
 </style>
 </head>
 <body>
@@ -452,13 +550,120 @@
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <p class="label rv">Contact</p>
+      <p class="label rv">Start a project</p>
       <h2 class="rv" style="margin-top:12px" data-d="80">Have a project in mind?</h2>
-      <p class="rv" data-d="160">Email me what you need and I'll get back to you.</p>
-      <div class="links rv" data-d="240">
-        <a class="btn primary" href="mailto:mejiadaveeh@gmail.com?subject=Project%20inquiry" data-magnet>mejiadaveeh@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/mejia-paul-daveeh-473355373/" target="_blank" rel="noopener" data-magnet>LinkedIn</a>
-        <a class="btn" href="https://v2.onlinejobs.ph/jobseekers" target="_blank" rel="noopener" data-magnet>OnlineJobs.ph</a>
+      <p class="sub rv" data-d="160">Tell me what you need in four quick steps, then pick a time to talk. I'll reply within 24 hours.</p>
+
+      <div class="pf rv" id="pf" data-d="220">
+        <div class="pf-head">
+          <ol class="pf-steps" id="pfSteps" aria-label="Form progress">
+            <li class="on"><b>1</b>Services</li><li><b>2</b>Details</li><li><b>3</b>Meeting</li><li><b>4</b>You</li>
+          </ol>
+        </div>
+
+        <form id="pform" novalidate autocomplete="on">
+          <input class="hp" type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="pf-body">
+
+            <fieldset class="pf-step on" data-step="1">
+              <h3 tabindex="-1">What do you need?</h3>
+              <p class="pf-hint">Pick everything that fits. You can choose more than one.</p>
+              <div class="pf-grid" role="group" aria-label="Services">
+                <label class="opt"><input type="checkbox" name="svc" value="Advertisements"><span>Advertisements<small>Social media and product ads</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="Print & Layout"><span>Print &amp; Layout<small>Tracts, brochures, booklets</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="Flyers"><span>Flyers<small>Posters and event flyers</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="Apparel"><span>Apparel<small>Shirts, jerseys, caps</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="PowerPoints"><span>PowerPoints<small>Clean slide decks</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="Food & Menus"><span>Food &amp; Menus<small>Menus and food designs</small></span></label>
+                <label class="opt"><input type="checkbox" name="svc" value="Something else"><span>Something else<small>Not sure yet? Tell me next</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="pf-step" data-step="2">
+              <h3 tabindex="-1">Tell me about it.</h3>
+              <p class="pf-hint">A few lines is enough. I'll ask for anything I'm missing.</p>
+              <label class="l" for="pfDetails">Project details</label>
+              <textarea class="pf-in" id="pfDetails" name="details" maxlength="1500" placeholder="What is it for, who is it for, and what should people do when they see it?"></textarea>
+              <div class="l" id="lbBudget">Budget</div>
+              <div class="pf-pills" role="radiogroup" aria-labelledby="lbBudget">
+                <label class="opt"><input type="radio" name="budget" value="$10 – $50"><span>$10 – $50</span></label>
+                <label class="opt"><input type="radio" name="budget" value="$50 – $100"><span>$50 – $100</span></label>
+                <label class="opt"><input type="radio" name="budget" value="$100+"><span>$100+</span></label>
+                <label class="opt"><input type="radio" name="budget" value="Long-term, full-time"><span>Long-term, full-time</span></label>
+                <label class="opt"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
+              </div>
+              <div class="l" id="lbWhen">When do you need it?</div>
+              <div class="pf-pills" role="radiogroup" aria-labelledby="lbWhen">
+                <label class="opt"><input type="radio" name="deadline" value="As soon as possible"><span>As soon as possible</span></label>
+                <label class="opt"><input type="radio" name="deadline" value="Within a week"><span>Within a week</span></label>
+                <label class="opt"><input type="radio" name="deadline" value="2 to 4 weeks"><span>2 to 4 weeks</span></label>
+                <label class="opt"><input type="radio" name="deadline" value="Flexible"><span>Flexible</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="pf-step" data-step="3">
+              <h3 tabindex="-1">When can we talk?</h3>
+              <p class="pf-hint">Pick a day, then up to 3 times that work for you. I'll confirm one by email.</p>
+              <div class="cal">
+                <div class="cal-box">
+                  <div class="cal-nav"><button type="button" id="calPrev" aria-label="Previous month">←</button><b id="calTitle"></b><button type="button" id="calNext" aria-label="Next month">→</button></div>
+                  <div class="cal-dow" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+                  <div class="cal-days" id="calDays"></div>
+                </div>
+                <div>
+                  <div class="slots-h" id="slotsH" aria-live="polite"><b>Choose a day</b><span>Times show in your time zone.</span></div>
+                  <div class="slots" id="slots"></div>
+                  <ul class="picks" id="picks" aria-label="Your chosen times"></ul>
+                </div>
+              </div>
+              <div class="pf-pills flex"><label class="opt"><input type="checkbox" id="pfFlex"><span>None of these work. Suggest a time for me.</span></label></div>
+              <div class="l">Call on</div>
+              <div class="pf-pills" role="radiogroup" aria-label="Meeting app">
+                <label class="opt"><input type="radio" name="platform" value="Google Meet" checked><span>Google Meet</span></label>
+                <label class="opt"><input type="radio" name="platform" value="Zoom"><span>Zoom</span></label>
+                <label class="opt"><input type="radio" name="platform" value="WhatsApp or Viber"><span>WhatsApp or Viber</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="pf-step" data-step="4">
+              <h3 tabindex="-1">Last step: who are you?</h3>
+              <p class="pf-hint">So I know who to reply to.</p>
+              <div class="pf-row">
+                <div><label class="l" for="pfName">Your name</label><input class="pf-in" id="pfName" name="name" autocomplete="name" maxlength="80" placeholder="Maria Santos"></div>
+                <div><label class="l" for="pfEmail">Email</label><input class="pf-in" id="pfEmail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@company.com"></div>
+              </div>
+              <label class="l" for="pfCompany">Company or brand <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input class="pf-in" id="pfCompany" name="company" autocomplete="organization" maxlength="80" placeholder="Your company">
+              <div class="recap" id="recap" aria-label="Summary"></div>
+              <p class="pf-note">I only use your details to reply about this project.</p>
+            </fieldset>
+
+            <p class="pf-err" id="pfErr" role="alert"></p>
+          </div>
+
+          <div class="pf-foot">
+            <button type="button" class="btn" id="pfBack" hidden>← Back</button>
+            <span class="spacer"></span>
+            <span class="pf-count" id="pfCount">Step 1 of 4</span>
+            <button type="button" class="btn primary" id="pfNext" data-magnet>Next →</button>
+          </div>
+        </form>
+
+        <div class="pf-done" id="pfDone" role="status" tabindex="-1">
+          <svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36"/><path d="M24 41l11 11 21-23"/></svg>
+          <h3 id="doneTitle">Message sent.</h3>
+          <p id="doneText">Thank you. I'll reply within 24 hours.</p>
+          <a class="btn" href="#work" id="doneLink">Browse my work while you wait</a>
+        </div>
+      </div>
+
+      <div class="alt-contact rv" data-d="120">
+        <p class="t">Prefer to reach out directly?</p>
+        <div class="links">
+          <a class="btn" href="mailto:mejiadaveeh@gmail.com?subject=Project%20inquiry" data-magnet>mejiadaveeh@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/mejia-paul-daveeh-473355373/" target="_blank" rel="noopener" data-magnet>LinkedIn</a>
+          <a class="btn" href="https://v2.onlinejobs.ph/jobseekers" target="_blank" rel="noopener" data-magnet>OnlineJobs.ph</a>
+        </div>
       </div>
     </div>
   </section>
@@ -855,6 +1060,175 @@ function tick(){
 }
 tick(); setInterval(tick,30000);
 $("#yr").textContent=new Date().getFullYear();
+
+/* =====================================================================
+   PROJECT FORM + MEETING CALENDAR
+   FORM_ENDPOINT: paste the Web App URL from your Google script here.
+   While it is empty, the form opens the visitor's email app instead.
+   ===================================================================== */
+const FORM_ENDPOINT = "";
+const OWNER_EMAIL = "mejiadaveeh@gmail.com";
+const SLOT_RULES = { fromHour:8, toHour:22, days:[1,2,3,4,5,6], leadHours:24, horizonDays:45 }; // hours and weekdays are Philippine time
+
+(function projectForm(){
+  const pf=$("#pf"), form=$("#pform"); if(!pf||!form) return;
+  const steps=$$(".pf-step",form), tabs=$$("#pfSteps li"), err=$("#pfErr");
+  const back=$("#pfBack"), next=$("#pfNext"), count=$("#pfCount");
+  const tz=(()=>{try{return Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC"}catch(e){return "UTC"}})();
+  const born=Date.now();
+  let step=1, picks=[], selDate=null;
+  const today=new Date(); today.setHours(0,0,0,0);
+  let view=new Date(today.getFullYear(),today.getMonth(),1);
+
+  /* ---- navigation ---- */
+  function show(n,dir){
+    step=n;
+    steps.forEach((s,i)=>{ s.classList.toggle("on",i===n-1); if(i===n-1) s.style.setProperty("--dx",(dir<0?-26:26)+"px"); });
+    tabs.forEach((t,i)=>{ t.classList.toggle("on",i===n-1); t.classList.toggle("done",i<n-1); });
+    back.hidden = n===1;
+    count.textContent=`Step ${n} of 4`;
+    next.textContent = n===4 ? (FORM_ENDPOINT?"Send my request ✦":"Open in my email app ✦") : "Next →";
+    err.textContent="";
+    if(n===3) renderCal();
+    if(n===4) recap();
+    const h=steps[n-1].querySelector("h3"); if(h && isReady) h.focus({preventScroll:true});
+    if(isReady) pf.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+  }
+  function fail(msg){
+    err.textContent=msg; err.classList.remove("shake"); void err.offsetWidth; err.classList.add("shake");
+  }
+  const val=(name)=>{const el=form.querySelector(`[name="${name}"]:checked`);return el?el.value:""};
+  function check(n){
+    if(n===1 && !$$('input[name="svc"]:checked',form).length) return "Pick at least one service so I know what you need.";
+    if(n===2){
+      if($("#pfDetails").value.trim().length<10) return "Add a short description of your project (at least a sentence).";
+      if(!val("budget")) return "Choose a budget range.";
+      if(!val("deadline")) return "Choose when you need it.";
+    }
+    if(n===3 && !picks.length && !$("#pfFlex").checked) return "Pick at least one time, or tick \"None of these work\".";
+    if(n===4){
+      if($("#pfName").value.trim().length<2) return "Please enter your name.";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($("#pfEmail").value.trim())) return "Please enter a valid email address.";
+    }
+    return "";
+  }
+  next.addEventListener("click",()=>{
+    const m=check(step); if(m){ fail(m); return; }
+    if(step<4) show(step+1,1); else submit();
+  });
+  back.addEventListener("click",()=>{ if(step>1) show(step-1,-1); });
+  form.addEventListener("keydown",e=>{ if(e.key==="Enter" && e.target.tagName!=="TEXTAREA" && e.target.type!=="checkbox" && e.target.type!=="radio" && e.target.tagName!=="BUTTON"){ e.preventDefault(); next.click(); } });
+  form.addEventListener("change",()=>{ if(err.textContent) err.textContent=""; });
+
+  /* ---- slots (shown in the visitor's time zone, limited to Paul's hours) ---- */
+  const fmtTime=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit"});
+  const fmtDay=new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric"});
+  const fmtMnl=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Manila",weekday:"short",hour:"numeric",minute:"2-digit"});
+  function slotsFor(d){
+    const out=[], min=Date.now()+SLOT_RULES.leadHours*36e5;
+    for(let h=0;h<24;h++){
+      const dt=new Date(d.getFullYear(),d.getMonth(),d.getDate(),h,0), ms=dt.getTime();
+      if(ms<min) continue;
+      const ph=new Date(ms+8*36e5), hh=ph.getUTCHours();
+      if(SLOT_RULES.days.includes(ph.getUTCDay()) && hh>=SLOT_RULES.fromHour && hh<SLOT_RULES.toHour) out.push(dt);
+    }
+    return out;
+  }
+  const key=(d)=>d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate();
+  function renderCal(){
+    const days=$("#calDays"); days.innerHTML="";
+    $("#calTitle").textContent=view.toLocaleDateString("en-US",{month:"long",year:"numeric"});
+    const first=view.getDay(), n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    const limit=new Date(today.getTime()+SLOT_RULES.horizonDays*864e5);
+    for(let i=0;i<first;i++) days.appendChild(document.createElement("i"));
+    for(let d=1;d<=n;d++){
+      const dt=new Date(view.getFullYear(),view.getMonth(),d), b=document.createElement("button");
+      b.type="button"; b.textContent=d;
+      const ok=dt<=limit && slotsFor(dt).length>0;
+      b.disabled=!ok;
+      if(+dt===+today) b.classList.add("today");
+      if(selDate && key(selDate)===key(dt)) b.classList.add("sel");
+      if(picks.some(p=>key(new Date(p.iso))===key(dt))) b.classList.add("has");
+      b.setAttribute("aria-label",fmtDay.format(dt)+(ok?"":" (not available)"));
+      b.addEventListener("click",()=>{ selDate=dt; renderCal(); });
+      days.appendChild(b);
+    }
+    $("#calPrev").disabled = view<=new Date(today.getFullYear(),today.getMonth(),1);
+    $("#calNext").disabled = new Date(view.getFullYear(),view.getMonth()+1,1)>limit;
+    renderSlots(); renderPicks();
+  }
+  $("#calPrev").addEventListener("click",()=>{ view=new Date(view.getFullYear(),view.getMonth()-1,1); renderCal(); });
+  $("#calNext").addEventListener("click",()=>{ view=new Date(view.getFullYear(),view.getMonth()+1,1); renderCal(); });
+  function renderSlots(){
+    const box=$("#slots"), head=$("#slotsH"); box.innerHTML="";
+    if(!selDate){ head.innerHTML=`<b>Choose a day</b><span>Times show in your time zone (${tz.replace(/_/g," ")}).</span>`; return; }
+    head.innerHTML=`<b>${fmtDay.format(selDate)}</b><span>Times in your time zone (${tz.replace(/_/g," ")}).</span>`;
+    const list=slotsFor(selDate);
+    if(!list.length){ box.innerHTML='<div class="slots-empty">No times left on this day. Try another day.</div>'; return; }
+    list.forEach(dt=>{
+      const b=document.createElement("button"); b.type="button"; b.className="slot"; b.textContent=fmtTime.format(dt);
+      const iso=dt.toISOString(); if(picks.some(p=>p.iso===iso)) b.classList.add("on");
+      b.addEventListener("click",()=>{
+        const i=picks.findIndex(p=>p.iso===iso);
+        if(i>-1) picks.splice(i,1);
+        else { if(picks.length>=3){ fail("You can pick up to 3 times. Remove one first."); return; } picks.push({iso,day:fmtDay.format(dt),time:fmtTime.format(dt),ph:fmtMnl.format(dt)}); err.textContent=""; }
+        renderCal();
+      });
+      box.appendChild(b);
+    });
+  }
+  function renderPicks(){
+    const ul=$("#picks"); ul.innerHTML="";
+    picks.sort((a,b)=>a.iso<b.iso?-1:1).forEach(p=>{
+      const li=document.createElement("li");
+      li.innerHTML=`<span><b>${p.day} · ${p.time}</b><small>${p.ph} in the Philippines</small></span>`;
+      const x=document.createElement("button"); x.type="button"; x.innerHTML="&times;"; x.setAttribute("aria-label","Remove "+p.day+" "+p.time);
+      x.addEventListener("click",()=>{ picks=picks.filter(q=>q.iso!==p.iso); renderCal(); });
+      li.appendChild(x); ul.appendChild(li);
+    });
+  }
+
+  /* ---- recap + submit ---- */
+  const esc=(s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const data=()=>({
+    services:$$('input[name="svc"]:checked',form).map(i=>i.value),
+    details:$("#pfDetails").value.trim(), budget:val("budget"), deadline:val("deadline"),
+    slots:picks.map(p=>p.iso), flex:$("#pfFlex").checked, platform:val("platform")||"Google Meet", tz,
+    name:$("#pfName").value.trim(), email:$("#pfEmail").value.trim(), company:$("#pfCompany").value.trim(),
+    hp:$("#hp").value, t:Date.now()-born
+  });
+  function recap(){
+    const d=data(), when=d.slots.length?picks.map(p=>`${p.day} ${p.time}`).join(" · "):"I'll suggest a time";
+    $("#recap").innerHTML=`<div><b>Services:</b> ${esc(d.services.join(", "))}</div><div><b>Budget:</b> ${esc(d.budget)} &nbsp;·&nbsp; <b>Needed:</b> ${esc(d.deadline)}</div><div><b>Meeting:</b> ${esc(when)} on ${esc(d.platform)}</div>`;
+  }
+  function mailto(d){
+    const when=d.slots.length?picks.map(p=>`${p.day} ${p.time} (${tz})`).join("; "):"Please suggest a time";
+    const body=[`Hi Paul,`,``,`Name: ${d.name}`,`Company: ${d.company||"-"}`,`Services: ${d.services.join(", ")}`,`Budget: ${d.budget}`,`Needed: ${d.deadline}`,`Preferred meeting times: ${when}`,`Call on: ${d.platform}`,``,`Details:`,d.details].join("\n");
+    return `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Project inquiry from "+d.name)}&body=${encodeURIComponent(body)}`;
+  }
+  function done(title,text){
+    $("#doneTitle").textContent=title; $("#doneText").textContent=text;
+    pf.classList.add("sent"); pf.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});
+    setTimeout(()=>$("#pfDone").focus({preventScroll:true}),50);
+  }
+  async function submit(){
+    const d=data();
+    if(!FORM_ENDPOINT){
+      location.href=mailto(d);
+      done("Almost there.",`Your email app should open with everything filled in. Just press send. If it did not open, email ${OWNER_EMAIL} directly.`);
+      return;
+    }
+    next.disabled=true; back.disabled=true; next.textContent="Sending…";
+    try{
+      await fetch(FORM_ENDPOINT,{method:"POST",mode:"no-cors",body:JSON.stringify(d)});
+      done("Message sent.",`Thank you, ${d.name.split(" ")[0]}. A confirmation is on its way to ${d.email}, and I'll reply within 24 hours.`);
+    }catch(e){
+      next.disabled=false; back.disabled=false; next.textContent="Send my request ✦";
+      fail("Could not send right now. Check your connection and try again, or email "+OWNER_EMAIL+".");
+    }
+  }
+  show(1,1);
+})();
 </script>
 </body>
 </html>
